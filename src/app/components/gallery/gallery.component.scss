@@ -1,0 +1,10 @@
+.gallery {
+  &__box {
+    padding: 15px;
+    img {
+      display: block;
+      max-width: 100%;
+      box-shadow: 0 1px 5px rgb(40 42 54 / 44%);
+    }
+  }
+}

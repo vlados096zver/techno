@@ -1,0 +1,215 @@
+@import 'variables';
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 200;
+  background-color: #fff;
+  @include media(md) {
+    background-color: #0762f8;
+  }
+  &__wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    @include media(md) {
+      padding: 3px 0;
+      justify-content: space-between;
+    }
+  }
+  &.active {
+    background: #00247e;
+    .header__box {
+      @media only screen and (min-width: 961px)  {
+        color: #fff;
+      }
+    }
+    .header__btn {
+      color: #0c5adb;
+      background: #fff;
+      border: 2px solid #fff;
+    }
+    .header__logo {
+      display: none;
+    }
+    .header__logo-fix {
+      display: block;
+      @include media(md) {
+        display: none;
+      }
+    }
+  }
+  &__logo {
+    display: block;
+    max-width: 100%;
+    margin-right: auto;
+    @include media(md) {
+      display: none;
+    }
+  }
+  &__logo-fix {
+    display: none;
+    margin-right: auto;
+  }
+  &__title {
+    display: none;
+    @include media(md) {
+      display: block;
+      font-size: 22px;
+      color: #fff;
+      font-weight: 700;
+    }
+  }
+  &__list {
+    display: flex;
+    align-items: center;
+    @include media(md) {
+      display: none;
+      width: calc(100% + 40px);
+      top: 100%;
+      left: -20px;
+      right: -20px;
+      z-index: 3;
+      position: absolute;
+      max-height: calc(100vh - 100px);
+      min-height: calc(100vh - 100px);
+      background-color: #fff;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+    &.open {
+      @include media(md) {
+        display: block;
+      }
+    }
+  }
+  &__submenu {
+    position: absolute;
+    top: 100%;
+    max-width: 230px;
+    min-width: 230px;
+    width: 100%;
+    opacity: 0;
+    z-index: 12;
+    visibility: hidden;
+    background-color: #fff;
+    transform: scaleY(0);
+    transform-origin: center top 0;
+    transition: all 0.4s ease-in-out;
+    @include media(md) {
+      position: static;
+      display: none;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      padding: 0;
+      max-width: 100%;
+    }
+    &.open {
+      @include media(md) {
+        display: block;
+      }
+    }
+    li a {
+      display: block;
+      position: relative;
+      width: 100%;
+      color: #616161;
+      text-decoration: none;
+      padding-top: 13px;
+      padding-bottom: 13px;
+      padding-left: 20px;
+      transition: 0.5s;
+      &:after {
+        content: "";
+        position: absolute;
+        height: 1px;
+        width: 15px;
+        background-color: red;
+        top: 50%;
+        left: 0px;
+        transform: translateY(-50%);
+        opacity: 0;
+        transition: 0.1s;
+        @include media(md) {
+          display: none;
+        }
+      }
+      &:hover {
+        margin-left: 15px;
+        @include media(md) {
+          margin-left: 0px;
+        }
+          &:after {
+            opacity: 1;
+          }
+      }
+      @include media(md) {
+        font-size: 14px;
+        background-color: #fff;
+        padding-left: 34px;
+      }
+    }
+  }
+  &__box {
+    cursor: pointer;
+    display: block;
+    padding: 36px 15px;
+    color: #232323;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+    @include media(md) {
+      font-size: 14px;
+      color: #444;
+      padding: 17px 15px;
+      text-transform: uppercase;
+      border-top: 1px solid #ddd;
+      font-weight: 700;
+    }
+    &:hover {
+      @include media(md) {
+        background-color: #f8f8f8;
+      }
+    }
+  }
+  &__burger {
+    display: none;
+    @include media(md) {
+      cursor: pointer;
+      display: block;
+      width: 58px;
+      height: 58px;
+      padding: 0;
+      border: none;
+      outline: none;
+      background-color: transparent;
+    }
+  }
+  &__btn {
+    background: #0c5adb;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 17px;
+    margin-bottom: 0;
+    padding: 10px 30px;
+    text-align: center;
+    text-transform: capitalize;
+    transition: all 0.3s ease 0s;
+    vertical-align: middle;
+    border-radius: 5px;
+    border: 2px solid #0c5adb;
+    font-weight: 600;
+    @include media(md) {
+      display: none;
+    }
+    &:hover {
+      border: 2px solid #00247E;
+      background: #00247E;
+      color: #fff;
+    }
+  }
+}

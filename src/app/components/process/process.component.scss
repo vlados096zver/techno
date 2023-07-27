@@ -1,0 +1,47 @@
+@import 'variables';
+
+:host {
+  display: block;
+  width: calc(100% / 4 - 24px);
+  box-shadow: 0 0 8px rgb(0 0 0 / 10%);
+  padding: 42px 20px 40px;
+  margin: 0 12px;
+  margin-bottom: 30px;
+  @include media(mdx) {
+    width: calc(100% / 3 - 24px);
+  }
+  @include media(md) {
+    width: calc(100% / 2 - 24px);
+  }
+  @include media(sm) {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+  }
+}
+
+.process {
+  &__image {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    box-shadow: 0 0 30px rgb(0 0 0 / 8%);
+    border-radius: 50%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    img {
+      max-width: 24px;
+    }
+  }
+  &__title {
+    font-size: 23px;
+    color: #232323;
+    line-height: 1.2;
+    text-align: center;
+    font-weight: 700;
+  }
+}

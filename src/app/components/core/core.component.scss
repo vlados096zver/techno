@@ -1,0 +1,46 @@
+@import 'variables';
+
+:host {
+  display: block;
+  width: calc(100% / 4 - 24px);
+  border: 1px solid #eeeeee;
+  padding: 20px;
+  margin: 0 12px;
+  margin-bottom: 30px;
+  transition: 0.25s box-shadow;
+  @include media(mdx) {
+    width: calc(100% / 3 - 24px);
+  }
+  @include media(md) {
+    width: calc(100% / 2 - 24px);
+  }
+  @include media(sm) {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+  }
+  &:hover {
+    box-shadow: 0 0 50px rgb(0 0 0 / 10%);
+  }
+}
+
+.core {
+  &__content {
+    padding: 35px 20px 18px;
+    border: 1px solid #eeeeee;
+  }
+  &__image {
+    margin-bottom: 20px;
+    img {
+      display: block;
+      max-width: 80px;
+      margin: 0 auto;
+    }
+  }
+  &__title {
+    font-size: 16px;
+    color: #828282;
+    text-align: center;
+  }
+}

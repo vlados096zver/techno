@@ -1,0 +1,63 @@
+@import 'variables';
+
+:host {
+  display: block;
+  width: calc(100% / 4 - 24px);
+  margin: 0 12px;
+  margin-bottom: 30px;
+  @include media(mdx) {
+    width: calc(100% / 2 - 24px);
+  }
+  @include media(sm) {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+  &:not(:last-child) {
+    margin-bottom: 30px;
+  }
+  &:hover {
+    .team__content {
+      &:before {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.team {
+  &__image {
+    img {
+      display: block;
+      max-width: 100%;
+    }
+  }
+  &__content {
+    background: #1c1c24;
+    padding: 20px 18px 25px 28px;
+    position: relative;
+    z-index: 1;
+    &:before {
+      position: absolute;
+      left: 0;
+      content: "";
+      top: 0;
+      height: 100%;
+      width: 2%;
+      z-index: -1;
+      background: #0c5adb;
+      transition: .5s;
+    }
+  }
+  &__title {
+    font-size: 22px;
+    color: #fff;
+    padding-bottom: 15px;
+    font-weight: 700;
+  }
+  &__position {
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
+  }
+}

@@ -1,0 +1,14 @@
+
+
+<div class="reviews__holder">
+  <div class="reviews__image">
+    <img [src]="item.image">
+  </div>
+  <div class="reviews__content">
+    <p class="reviews__title">{{item.fio}}</p>
+    <app-stars [number]="4"></app-stars>
+  </div>
+</div>
+<div class="reviews__text">
+  <p>{{item.text}}</p>
+</div>

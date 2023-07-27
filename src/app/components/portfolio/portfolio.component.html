@@ -1,0 +1,7 @@
+<div class="portfolio__image">
+  <img [src]="item.image">
+  <p *ngIf="item.new" class="portfolio__new">new</p>
+  <p class="portfolio__demo">live demo</p>
+</div>
+<p class="portfolio__title">{{item.title}}</p>
+<p class="portfolio__subtitle">{{item.subtitle}}</p>

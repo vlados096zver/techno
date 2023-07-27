@@ -1,0 +1,241 @@
+<app-header></app-header>
+
+<section class="content">
+  <app-chart></app-chart>
+  <div class="container">
+    <p class="content__title">The #1 Best Selling IT Solution And Multi-Purpose HTML5 Template </p>
+    <div class="content__text">
+      <p>A high-performant Multi-Purpose WordPress theme<br>suitable for any kind of WordPress project</p>
+    </div>
+    <div class="content__video" (click)="showPopupVideo()">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+        <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
+      </svg>
+    </div>
+  </div>
+  <div class="content__thumb">
+    <img src="assets/img/slider-bg.png" alt="">
+  </div>
+</section>
+
+<section class="technology">
+  <div class="container">
+    <div class="technology__wrap">
+      <ng-container  *ngFor="let item of technology">
+        <app-technology [item]="item"></app-technology>
+      </ng-container>
+    </div>
+  </div>
+</section>
+
+<section class="price">
+  <div class="container">
+    <div class="price__wrap">
+      <div class="price__item price__item--block">
+        <p class="price__title ">All In One HTML5 Package For a Single Price</p>
+      </div>
+      <div class="price__item price__item--content">
+        <ng-container *ngFor="let item of price; let index = index">
+          <div class="price__box">
+            <p class="price__count">
+              <span appNumber
+                    [count]="item.number"
+                    class="numbers{{index}}"
+                    [elemClass]="'numbers' + index">{{item.number}}</span>+</p>
+            <p class="price__text">{{item.text}}</p>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="portfolio">
+  <div class="container">
+    <p class="subtitle">50+ Stunning and <br>Unique Demos</p>
+    <app-navbar [tabs]="tabs" (activeTabChange)="changeState($event)" [(activeTab)]="activeTab"></app-navbar>
+    <div class="portfolio__wrap" >
+      <ng-container *ngFor="let tab of tabs; let index = index">
+        <ng-container *ngIf="activeTab === index">
+          <ng-container *ngFor="let item of portfolio; let point = index;">
+            <app-portfolio [item]="item"
+                         class="project__box"
+                         [class.hide]="index > 0 && item.type.toLowerCase() !== tab.toLowerCase()"></app-portfolio>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+</section>
+
+<section class="info">
+  <div class="info__wrap">
+    <div class="info__item info__item--content">
+      <p class="elem">BEST UI/UX</p>
+      <p class="title">No Compromising <br>With Quality</p>
+      <div class="info__desc">
+        <div class="info__box">
+          <p class="info__title">Effective UX Design</p>
+          <p class="info__text">Effective UX Design
+            All Demos are made with clear, concise, useful,
+            minimal and modern design pattern</p>
+        </div>
+        <div class="info__box">
+          <p class="info__title">Effective UX Design</p>
+          <p class="info__text">Effective UX Design
+            All Demos are made with clear, concise, useful,
+            minimal and modern design pattern</p>
+        </div>
+      </div>
+    </div>
+    <div class="info__item info__item--gallery">
+      <swiper [config]="configCategory" #swiperCategory>
+        <ng-template *ngFor="let item of category" swiperSlide>
+          <app-category [item]="item"></app-category>
+        </ng-template>
+      </swiper>
+    </div>
+  </div>
+</section>
+
+<app-coding></app-coding>
+
+<section class="process">
+  <div class="container">
+    <div class="process__wrap">
+      <ng-container  *ngFor="let item of process">
+         <app-process [item]="item"></app-process>
+      </ng-container>
+    </div>
+  </div>
+</section>
+
+<section class="gallery">
+  <div class="container">
+    <div class="gallery__holder">
+      <swiper [config]="configGallery" #swiperGallery>
+        <ng-template *ngFor="let item of gallery" swiperSlide>
+          <app-gallery [item]="item"></app-gallery>
+        </ng-template>
+      </swiper>
+      <button class="gallery__btn gallery__btn--prev" (click)="swiperGallery?.swiperRef?.slidePrev(200)">
+        <svg xmlns="http://www.w3.org/2000/svg"
+             width="16"
+             height="16"
+             viewBox="0 0 1728 1280">
+          <path fill="#fff" d="M1728 544v192q0 14-9 23t-23 9H448v224q0 21-19 29t-35-5L10 666Q0 656 0 643q0-14 10-24l384-354q16-14 35-6q19 9 19 29v224h1248q14 0 23 9t9 23z"/></svg>
+      </button>
+      <button class="gallery__btn gallery__btn--next" (click)="swiperGallery?.swiperRef?.slideNext(200)">
+        <svg xmlns="http://www.w3.org/2000/svg"
+             width="16"
+             height="16"
+             viewBox="0 0 1728 1280"><g transform="translate(1728 0) scale(-1 1)"><path fill="#fff" d="M1728 544v192q0 14-9 23t-23 9H448v224q0 21-19 29t-35-5L10 666Q0 656 0 643q0-14 10-24l384-354q16-14 35-6q19 9 19 29v224h1248q14 0 23 9t9 23z"/></g></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="team">
+  <div class="container">
+    <p class="elem">Support Team</p>
+    <p class="subtitle">Our Dedicated Support Team For Help You All Time</p>
+    <div class="team__wrap">
+      <ng-container  *ngFor="let item of team">
+        <app-team [item]="item"></app-team>
+      </ng-container>
+    </div>
+  </div>
+</section>
+
+<section class="core">
+  <div class="container">
+    <p class="elem">Core features</p>
+    <p class="subtitle">Constantly update with New Features.</p>
+    <div class="core__wrap">
+      <ng-container  *ngFor="let item of core">
+        <app-core [item]="item"></app-core>
+      </ng-container>
+    </div>
+  </div>
+</section>
+
+<section class="image">
+  <img src="assets/img/bg-tech.jpg" alt="">
+</section>
+
+<section class="blog">
+  <div class="container">
+    <p class="title">DIFFERENT BLOGGING STYLE !</p>
+    <div class="gallery__holder">
+      <swiper [config]="configGalleryBlog" #swiperBlog>
+        <ng-template *ngFor="let item of gallery" swiperSlide>
+          <app-gallery [item]="item"></app-gallery>
+        </ng-template>
+      </swiper>
+      <button class="gallery__btn gallery__btn--prev" (click)="swiperBlog?.swiperRef?.slidePrev(200)">
+        <svg xmlns="http://www.w3.org/2000/svg"
+             width="16"
+             height="16"
+             viewBox="0 0 1728 1280">
+          <path fill="#fff" d="M1728 544v192q0 14-9 23t-23 9H448v224q0 21-19 29t-35-5L10 666Q0 656 0 643q0-14 10-24l384-354q16-14 35-6q19 9 19 29v224h1248q14 0 23 9t9 23z"/></svg>
+      </button>
+      <button class="gallery__btn gallery__btn--next" (click)="swiperBlog?.swiperRef?.slideNext(200)">
+        <svg xmlns="http://www.w3.org/2000/svg"
+             width="16"
+             height="16"
+             viewBox="0 0 1728 1280"><g transform="translate(1728 0) scale(-1 1)"><path fill="#fff" d="M1728 544v192q0 14-9 23t-23 9H448v224q0 21-19 29t-35-5L10 666Q0 656 0 643q0-14 10-24l384-354q16-14 35-6q19 9 19 29v224h1248q14 0 23 9t9 23z"/></g></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="responsive">
+    <div class="responsive__wrap">
+      <div class="responsive__item responsive__item--content">
+        <p class="responsive__title">RESPONSIVE</p>
+        <p class="responsive__subtitle">100% Responsive For All Device</p>
+        <p class="responsive__text">Techno HTML5 template is fully responsive for all kind of device specilly this template</p>
+      </div>
+      <div class="responsive__item responsive__item--image">
+        <img src="assets/img/responsive.png" alt="">
+      </div>
+    </div>
+</section>
+
+<section class="reviews">
+  <div class="container">
+    <p class="elem">ECOMMERCE READY</p>
+    <p class="subtitle">2,000+ Happy customers Customers Opinions</p>
+    <swiper [config]="configReviews" (swiper)="setSwiperInstance()" #swiperReviews>
+      <ng-template *ngFor="let item of reviews" swiperSlide>
+        <app-reviews [item]="item"></app-reviews>
+      </ng-template>
+    </swiper>
+  </div>
+</section>
+
+<app-footer></app-footer>
+
+
+<section class="popup-video " [class.active]="showVideo">
+  <div class="popup-video__close" (click)="showVideo = false">
+    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 20 21" fill="none">
+      <path d="M11.4695 10.0041L19.7595 1.71409C19.9234 1.52279 20.009 1.27671 19.9993 1.02504C19.9895 0.773362 19.8852 0.534623 19.7071 0.356529C19.529 0.178434 19.2903 0.0741013 19.0386 0.0643802C18.7869 0.054659 18.5408 0.140266 18.3495 0.304092L10.0595 8.59409L1.76954 0.294092C1.58124 0.105788 1.32585 0 1.05954 0C0.793242 0 0.537847 0.105788 0.349543 0.294092C0.16124 0.482395 0.0554518 0.73779 0.0554518 1.00409C0.0554518 1.27039 0.16124 1.52579 0.349543 1.71409L8.64954 10.0041L0.349543 18.2941C0.244862 18.3837 0.159841 18.4941 0.0998181 18.6181C0.0397948 18.7422 0.00606468 18.8773 0.000745191 19.015C-0.0045743 19.1528 0.0186312 19.2901 0.0689057 19.4184C0.11918 19.5467 0.195439 19.6633 0.292893 19.7607C0.390348 19.8582 0.506895 19.9345 0.63522 19.9847C0.763546 20.035 0.900878 20.0582 1.0386 20.0529C1.17632 20.0476 1.31145 20.0138 1.43551 19.9538C1.55958 19.8938 1.6699 19.8088 1.75954 19.7041L10.0595 11.4141L18.3495 19.7041C18.5408 19.8679 18.7869 19.9535 19.0386 19.9438C19.2903 19.9341 19.529 19.8298 19.7071 19.6517C19.8852 19.4736 19.9895 19.2348 19.9993 18.9831C20.009 18.7315 19.9234 18.4854 19.7595 18.2941L11.4695 10.0041Z" fill="#fff"/>
+    </svg>
+  </div>
+  <div class="container">
+    <div class="popup-video__elem">
+      <iframe
+        src="https://www.youtube.com/embed/sVPYIRF9RCQ?autoplay=1&mute=1"
+        frameborder="0"
+        width="300"
+        height="300"
+        allow="accelerometer;   gyroscope; picture-in-picture"
+        gesture="media" allow="encrypted-media" allowfullscreen
+      ></iframe>
+    </div>
+
+  </div>
+</section>
+
+<div class="btn-scroll" appScroll (click)="scrollUp()"></div>
